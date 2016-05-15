@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CookingBook"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Cooking Book" Height="600" Width="880">
     <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/CookingBook;component/Images/background.png"/>
+        </Grid.Background>
+
+        <Label x:Name="Test" Content="Label" HorizontalAlignment="Left" Margin="557,243,0,0" VerticalAlignment="Top" Height="56" Width="195" RenderTransformOrigin="1.361,0.644"/>
+        <Label x:Name="CategoryStaticTxt" Content="Категории" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="247" FontFamily="Annabelle" FontSize="37.333" RenderTransformOrigin="0.581,0.464" FontWeight="Bold"/>
+
+        
+        <!-- Menu -->
+        <ListView x:Name="Menu" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="439" Margin="15,76,0,0" VerticalAlignment="Top" Width="227" FontSize="21.333" BorderThickness="0" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,-4,0,-4">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="0,0,0,0" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock x:Name="MenuItem"  Margin="0,25,0,0" FontSize="22" Text="{Binding category_name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
         
     </Grid>
 </Window>

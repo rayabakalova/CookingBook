@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CookingDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="Int32" Nullable="false" />
+    <Property Name="category_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Recipes" Relationship="Self.FK_Recipe_Category" FromRole="Category" ToRole="Recipe" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="products_id" />
+    </Key>
+    <Property Name="products_id" Type="Int32" Nullable="false" />
+    <Property Name="products_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Recipes" Relationship="Self.RecipeProduct" FromRole="Products" ToRole="Recipe" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="recipe_id" />
+    </Key>
+    <Property Name="recipe_id" Type="Int32" Nullable="false" />
+    <Property Name="recipe_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="recipe_descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="category_id" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Recipe_Category" FromRole="Recipe" ToRole="Category" />
+    <NavigationProperty Name="Products" Relationship="Self.RecipeProduct" FromRole="Recipe" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Recipe_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="category_id" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RecipeProduct">
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="CookingDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Recipes" EntityType="Self.Recipe" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Recipe_Category" Association="Self.FK_Recipe_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Recipe" EntitySet="Recipes" />
+    </AssociationSet>
+    <AssociationSet Name="RecipeProduct" Association="Self.RecipeProduct">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Recipe" EntitySet="Recipes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
