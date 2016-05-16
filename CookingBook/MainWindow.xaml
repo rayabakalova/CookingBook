@@ -12,10 +12,10 @@
             <ImageBrush ImageSource="/CookingBook;component/Images/background.png"/>
         </Grid.Background>
 
-        <Label x:Name="Test" Content="Label" HorizontalAlignment="Left" Margin="557,243,0,0" VerticalAlignment="Top" Height="56" Width="195" RenderTransformOrigin="1.361,0.644"/>
+        <Label x:Name="Test" Content="Label" HorizontalAlignment="Left" Margin="557,333,0,0" VerticalAlignment="Top" Height="56" Width="195" RenderTransformOrigin="1.361,0.644"/>
         <Label x:Name="CategoryStaticTxt" Content="Категории" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="247" FontFamily="Annabelle" FontSize="37.333" RenderTransformOrigin="0.581,0.464" FontWeight="Bold"/>
 
-        
+
         <!-- Menu -->
         <ListView x:Name="Menu" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="439" Margin="15,76,0,0" VerticalAlignment="Top" Width="227" FontSize="21.333" BorderThickness="0" SelectionMode="Single">
             <ListView.ItemTemplate>
@@ -36,6 +36,56 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        
+
+        <Label x:Name="Recommended" 
+               Content="Препоръчани"
+               HorizontalAlignment="Left" 
+               Margin="276,26,0,0" 
+               VerticalAlignment="Top"
+               Width="200"
+               FontSize="26.667"/>
+
+
+        <Image x:Name="RecommendedImg1"
+               HorizontalAlignment="Left"
+               Height="106" Margin="284,104,0,0"
+               VerticalAlignment="Top"
+               Width="168"/>
+
+        <Label x:Name="RecommendedTxt1"
+               HorizontalAlignment="Left" 
+               Margin="281,210,0,0" 
+               VerticalAlignment="Top"
+               Width="165"
+               FontSize="18.667"/>
+
+
+
+        <Image x:Name="RecommendedImg2"
+               HorizontalAlignment="Left"
+               Height="106" Margin="488,104,0,0"
+               VerticalAlignment="Top"
+               Width="168"/>
+
+        <Label x:Name="RecommendedTxt2"
+               HorizontalAlignment="Left" 
+               Margin="487,210,0,0" 
+               VerticalAlignment="Top"
+               Width="165"
+               FontSize="18.667"/>
+
+        <Image x:Name="RecommendedImg3"
+               HorizontalAlignment="Left"
+               Height="106" Margin="690,104,0,0"
+               VerticalAlignment="Top"
+               Width="168"/>
+
+        <Label x:Name="RecommendedTxt3"
+               HorizontalAlignment="Left" 
+               Margin="689,210,0,0" 
+               VerticalAlignment="Top"
+               Width="165"
+               FontSize="18.667"/>
+
     </Grid>
 </Window>

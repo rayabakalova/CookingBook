@@ -190,6 +190,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CookingData.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\Dishes\2.jpg" />
+    <Resource Include="Images\Dishes\1.jpg" />
     <Resource Include="Images\background.png" />
     <Resource Include="Images\bkg.png" />
     <Resource Include="Images\bkg.jpg" />
