@@ -84,7 +84,6 @@
                Width="168"/>
 
 
-
         <Image x:Name="RecommendedImg2"
                HorizontalAlignment="Left"
                Height="106" 
@@ -186,7 +185,7 @@
                Background="Transparent" 
                BorderThickness="0,0,0,0"
                HorizontalAlignment="Left"
-               Margin="489,248,0,0" 
+               Margin="493,248,0,0" 
                VerticalAlignment="Top"
                Template="{StaticResource NoAnimation}"
                Click="RecBtn1_Click"

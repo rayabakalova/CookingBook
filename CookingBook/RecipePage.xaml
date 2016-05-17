@@ -12,20 +12,30 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/CookingBook;component/Images/bkg.png"/>
+            <ImageBrush ImageSource="/CookingBook;component/Images/bkg1.png"/>
         </Grid.Background>
+
+
 
         <TextBox x:Name="textBox" 
                  HorizontalAlignment="Left" 
                  Height="83" 
-                 Margin="371,321,0,0" 
+                 Margin="440,372,0,0" 
                  TextWrapping="Wrap" 
                  Text="WORKING" 
                  VerticalAlignment="Top" 
                  FontSize="28" 
                  Width="441"/>
-        
-        
+
+
+        <Image x:Name="RecipeImage" 
+               HorizontalAlignment="Left" 
+               Height="130" 
+               Margin="564,126,0,0" 
+               VerticalAlignment="Top"
+               Width="160"/>
+
+
 
     </Grid>
 </Page>

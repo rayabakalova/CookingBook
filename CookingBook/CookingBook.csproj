@@ -197,6 +197,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CookingData.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\bkg1.png" />
+    <Resource Include="Images\Dishes\16.jpg" />
+    <Resource Include="Images\Dishes\13.jpg" />
+    <Resource Include="Images\Dishes\11.jpg" />
+    <Resource Include="Images\Dishes\12.jpg" />
+    <Resource Include="Images\Dishes\14.jpg" />
+    <Resource Include="Images\Dishes\15.jpg" />
+    <Resource Include="Images\Dishes\17.jpg" />
+    <Resource Include="Images\Dishes\18.jpg" />
+    <Resource Include="Images\Dishes\19.jpg" />
+    <Resource Include="Images\Dishes\20.jpg" />
     <Resource Include="Images\Dishes\10.jpg" />
     <Resource Include="Images\Dishes\9.jpg" />
     <Resource Include="Images\Dishes\8.jpg" />
@@ -209,7 +220,6 @@
     <Resource Include="Images\Dishes\1.jpg" />
     <Resource Include="Images\background.png" />
     <Resource Include="Images\bkg.png" />
-    <Resource Include="Images\bkg.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

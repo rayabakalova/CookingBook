@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CookingBook.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,40 @@ namespace CookingBook
     /// </summary>
     public partial class RecipePage : Page
     {
-        public RecipePage()
+
+        private static string postfix = ".jpg";
+        private static string PathBase = "/CookingBook;component/Images/Dishes/";
+
+        private MainWindowVeiwModel db = new MainWindowVeiwModel();
+
+        public RecipePage(int recipe_index)
         {
             InitializeComponent();
+            db.FillRecipe();
+
+            SetImage(recipe_index);
+
+        }
+
+        private void SetImage(int id)
+        {
+            string path = "";
+
+            if (db.Recipe[id] != null)
+            {
+               path = PathBase + db.Recipe[id].recipe_id + postfix;
+            }
+
+            Uri uri = null;
+
+            try
+            {
+                uri = new Uri("pack://application:,,," + path);
+            }
+            finally
+            {
+                RecipeImage.Source = new BitmapImage(uri);
+            }
         }
     }
 }

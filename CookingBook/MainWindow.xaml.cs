@@ -28,6 +28,8 @@ namespace CookingBook
         private static string postfix = ".jpg";
         private static string PathBase = "/CookingBook;component/Images/Dishes/";
 
+        private static int[] ButtonLinker = new int[6];
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,6 +43,11 @@ namespace CookingBook
             //Test.Content = db.Recipe[0].recipe_name;
 
 
+        }
+
+        public int[] getButtonLinkerId()
+        {
+            return ButtonLinker;
         }
 
         private void LoadMenu()
@@ -62,6 +69,7 @@ namespace CookingBook
             for (int i = 0; i < 6; i++)
             {
                 indexes[i] = rnd.Next(0, db.Recipe.Count);
+
             }
 
             while (duplicate == true)
@@ -101,6 +109,7 @@ namespace CookingBook
 
                 if (db.Recipe[picIndex[i]] != null)
                 {
+                    ButtonLinker[i] = picIndex[i];
                     path = PathBase + db.Recipe[picIndex[i]].recipe_id + postfix;
                     name = db.Recipe[picIndex[i]].recipe_name;
                 }
@@ -178,7 +187,7 @@ namespace CookingBook
         private void RecBtn1_Click(object sender, RoutedEventArgs e)
         {
             //Temporary
-            Main.Content = new RecipePage();
+            Main.Content = new RecipePage(ButtonLinker[0]);
             Recommended.Content = "ITs Working!!!";
         }
     }
