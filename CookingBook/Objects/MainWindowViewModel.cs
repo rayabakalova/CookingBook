@@ -59,11 +59,10 @@ namespace CookingBook.Objects
             this.RecipeByCategory = q;
         }
 
-        public void GetProducts(int recipeId)
+        public void GetProducts(int id)
         {
-            var q = (from recipe in cbdb.RecipeProduct
-                     join product in cbdb.Products
-                     on recipe.product)
+
+            var q = cbdb.Products.Where(r => r.Recipes.Any(t => t.recipe_id ==  id)).ToList();
 
             this.Products = q;
         }

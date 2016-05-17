@@ -38,14 +38,18 @@ namespace CookingBook
 
 
             LoadRecipes();
-
             LoadMenu();
-
-
             LoadRecommendedImages();
 
-            
 
+            /// Temporary..
+            // 1 is id of the recipe
+            db.GetProducts(1);
+
+           // 5 is current product
+           string temp = db.Products[5].products_name;
+
+            string t1 = temp;
             //Test.Content = db.Recipe[0].recipe_name;
 
 

@@ -13,7 +13,7 @@
       <PropertyRef Name="products_id" />
     </Key>
     <Property Name="products_id" Type="Int32" Nullable="false" />
-    <Property Name="products_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="products_name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Recipes" Relationship="Self.RecipeProduct" FromRole="Products" ToRole="Recipe" />
   </EntityType>
   <EntityType Name="Recipe">
@@ -21,7 +21,7 @@
       <PropertyRef Name="recipe_id" />
     </Key>
     <Property Name="recipe_id" Type="Int32" Nullable="false" />
-    <Property Name="recipe_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="recipe_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="recipe_descr" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="category_id" Type="Int32" />
     <NavigationProperty Name="Category" Relationship="Self.FK_Recipe_Category" FromRole="Recipe" ToRole="Category" />

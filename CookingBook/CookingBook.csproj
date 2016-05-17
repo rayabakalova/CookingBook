@@ -84,10 +84,20 @@
     <Compile Include="Category.cs">
       <DependentUpon>CookBook.tt</DependentUpon>
     </Compile>
+    <Compile Include="CookBook.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CookBook.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="CookBook.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CookBook.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CookBook.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CookBook.edmx</DependentUpon>
     </Compile>
     <Compile Include="Objects\MainWindowViewModel.cs" />
     <Compile Include="Product.cs">
@@ -109,16 +119,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CookBook.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CookBook.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CookBook.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CookBook.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

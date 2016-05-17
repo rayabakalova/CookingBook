@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\CookBook.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\CookBook.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

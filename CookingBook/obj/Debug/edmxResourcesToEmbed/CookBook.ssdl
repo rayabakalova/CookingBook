@@ -12,14 +12,14 @@
       <PropertyRef Name="products_id" />
     </Key>
     <Property Name="products_id" Type="int" Nullable="false" />
-    <Property Name="products_name" Type="nchar" MaxLength="30" />
+    <Property Name="products_name" Type="nchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Recipe">
     <Key>
       <PropertyRef Name="recipe_id" />
     </Key>
     <Property Name="recipe_id" Type="int" Nullable="false" />
-    <Property Name="recipe_name" Type="nchar" MaxLength="20" />
+    <Property Name="recipe_name" Type="nchar" MaxLength="50" />
     <Property Name="recipe_descr" Type="text" />
     <Property Name="category_id" Type="int" />
   </EntityType>
