@@ -6,14 +6,24 @@
         xmlns:local="clr-namespace:CookingBook"
         mc:Ignorable="d"
         Title="Cooking Book" Height="600" Width="880">
-    <Grid>
+    <Grid Margin="0,8,0,-8">
 
         <Grid.Background>
             <ImageBrush ImageSource="/CookingBook;component/Images/background.png"/>
         </Grid.Background>
 
         <Label x:Name="Test" Content="Label" HorizontalAlignment="Left" Margin="557,333,0,0" VerticalAlignment="Top" Height="56" Width="195" RenderTransformOrigin="1.361,0.644"/>
-        <Label x:Name="CategoryStaticTxt" Content="Категории" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Width="247" FontFamily="Annabelle" FontSize="37.333" RenderTransformOrigin="0.581,0.464" FontWeight="Bold"/>
+
+        <Label x:Name="CategoryStaticTxt"
+               Content="Категории" 
+               HorizontalAlignment="Left"
+               Margin="12,12,0,0" 
+               VerticalAlignment="Top" 
+               Width="247"
+               FontFamily="Annabelle"
+               FontSize="37.333"
+               RenderTransformOrigin="0.581,0.464" 
+               FontWeight="Bold"/>
 
 
         <!-- Menu -->
@@ -48,31 +58,48 @@
 
         <Image x:Name="RecommendedImg1"
                HorizontalAlignment="Left"
-               Height="106" Margin="284,104,0,0"
+               Height="106" 
+               Margin="284,104,0,0"
                VerticalAlignment="Top"
                Width="168"/>
 
-        <Label x:Name="RecommendedTxt1"
+        <TextBlock x:Name="RecommendedTxt1"
                HorizontalAlignment="Left" 
                Margin="281,210,0,0" 
                VerticalAlignment="Top"
+               TextWrapping="Wrap"
                Width="165"
-               FontSize="18.667"/>
+               Height="35"
+               FontSize="14"/>
+        
+         <Button x:Name="RecBtn1" 
+               Background="Transparent" 
+               BorderThickness="0,0,0,0"
+               HorizontalAlignment="Left"
+               Margin="284,104,0,0" 
+               VerticalAlignment="Top"
+               Template="{StaticResource NoAnimation}"
+               Click="RecBtn1_Click"
+               Height="141"
+               Width="168"/>
 
 
 
         <Image x:Name="RecommendedImg2"
                HorizontalAlignment="Left"
-               Height="106" Margin="488,104,0,0"
+               Height="106" 
+               Margin="488,104,0,0"
                VerticalAlignment="Top"
                Width="168"/>
 
-        <Label x:Name="RecommendedTxt2"
+        <TextBlock x:Name="RecommendedTxt2"
                HorizontalAlignment="Left" 
                Margin="487,210,0,0" 
+               TextWrapping="Wrap"
                VerticalAlignment="Top"
                Width="165"
-               FontSize="18.667"/>
+               Height="35"
+               FontSize="14"/>
 
         <Image x:Name="RecommendedImg3"
                HorizontalAlignment="Left"
@@ -80,12 +107,64 @@
                VerticalAlignment="Top"
                Width="168"/>
 
-        <Label x:Name="RecommendedTxt3"
+        <TextBlock x:Name="RecommendedTxt3"
                HorizontalAlignment="Left" 
                Margin="689,210,0,0" 
                VerticalAlignment="Top"
                Width="165"
-               FontSize="18.667"/>
+               Height="35"
+               TextWrapping="Wrap"
+               FontSize="14"/>
+
+        <Image x:Name="RecommendedImg4"
+               HorizontalAlignment="Left"
+               Height="106"
+               Margin="690,248,0,0"
+               VerticalAlignment="Top"
+               Width="168"/>
+
+        <TextBlock x:Name="RecommendedTxt4"
+               HorizontalAlignment="Left" 
+               Margin="689,354,0,0" 
+               VerticalAlignment="Top"
+               TextWrapping="Wrap"
+               Width="165"
+               Height="35"
+               FontSize="14"/>
+
+        <Image x:Name="RecommendedImg5"
+               HorizontalAlignment="Left"
+               Height="106"
+               Margin="489,248,0,0"
+               VerticalAlignment="Top"
+               Width="168"/>
+
+        <TextBlock x:Name="RecommendedTxt5"
+               HorizontalAlignment="Left" 
+               Margin="488,354,0,0" 
+               VerticalAlignment="Top"
+               TextWrapping="Wrap"
+               Width="165"
+               Height="35"
+               FontSize="14"/>
+
+        <Image x:Name="RecommendedImg6"
+               HorizontalAlignment="Left"
+               Height="106" 
+               Margin="285,248,0,0"
+               VerticalAlignment="Top"
+               Width="168"/>
+
+        <TextBlock x:Name="RecommendedTxt6"
+               HorizontalAlignment="Left" 
+               Margin="284,354,0,0" 
+               VerticalAlignment="Top"
+               Width="165"
+               Height="35"
+               TextWrapping="Wrap"
+               FontSize="14"/>
+        
+
 
     </Grid>
 </Window>

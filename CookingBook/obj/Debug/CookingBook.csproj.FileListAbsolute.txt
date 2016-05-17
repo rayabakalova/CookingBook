@@ -19,3 +19,4 @@ C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\CookingBook.csproj.GenerateResource.Cache
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\CookingBook.exe
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\CookingBook.pdb
+C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\App.baml

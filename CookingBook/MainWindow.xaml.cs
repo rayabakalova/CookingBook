@@ -49,40 +49,100 @@ namespace CookingBook
             Menu.ItemsSource = db.Category;
         }
 
+        private int[] RandomizeIndexes()
+        {
+
+            Random rnd = new Random();
+            bool duplicate = true;
+            int[] indexes = new int[6];
+
+
+            int test = db.Recipe.Count;
+
+            for (int i = 0; i < 6; i++)
+            {
+                indexes[i] = rnd.Next(0, db.Recipe.Count);
+            }
+
+            while (duplicate == true)
+            {
+                int dupCounter = 0;
+                for (int i = 0; i < 6; i++)
+                {
+                    for (int x = 0; x < 6; x++)
+                    {
+                        if (indexes[i] == indexes[x] && x != i)
+                        {
+                            dupCounter++;
+                            indexes[x] = rnd.Next(0, db.Recipe.Count);
+                        }
+                    }
+                }
+                if (dupCounter == 0)
+                {
+                    duplicate = false;
+                }
+            }
+
+            return indexes;
+        }
+
         private void LoadRecommendedImages()
         {
-            Random rnd = new Random();
+
+            int[] picIndex = RandomizeIndexes();
+
             string path = "";
             string name = "";
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 6; i++)
             {
-                int index = rnd.Next(0, 2);
+                //int index = rnd.Next(0, 2);
 
-                if (db.Recipe[index] != null)
+                if (db.Recipe[picIndex[i]] != null)
                 {
-                    path = PathBase + db.Recipe[index].recipe_id + postfix;
-                    name = db.Recipe[index].recipe_name;
+                    path = PathBase + db.Recipe[picIndex[i]].recipe_id + postfix;
+                    name = db.Recipe[picIndex[i]].recipe_name;
                 }
 
                 switch (i)
                 {
-                    case 1:
+                    case 0:
                         {
                             SetImage(RecommendedImg1, path);
-                            RecommendedTxt1.Content = name;
+                            RecommendedTxt1.Text = name;
                         } 
+                        break;
+                    case 1:
+                        {
+                            SetImage(RecommendedImg2, path);
+                            RecommendedTxt2.Text = name;
+                        }
                         break;
                     case 2:
                         {
-                            SetImage(RecommendedImg2, path);
-                            RecommendedTxt2.Content = name;
+                            SetImage(RecommendedImg3, path);
+                            RecommendedTxt3.Text = name;
                         }
                         break;
                     case 3:
                         {
-                            SetImage(RecommendedImg3, path);
-                            RecommendedTxt3.Content = name;
+                            SetImage(RecommendedImg4, path);
+                            RecommendedTxt4.Text = name;
+                        }
+                        break;
+
+                    case 4:
+                        {
+                            SetImage(RecommendedImg5, path);
+                            RecommendedTxt5.Text = name;
+                        }
+                        break;
+
+                    case 5:
+                        {
+                            SetImage(RecommendedImg6, path);
+                            RecommendedTxt6.Text = name;
                         }
                         break;
                     default:
@@ -113,6 +173,12 @@ namespace CookingBook
             {
                 Test.Content = "Raboti";
             }
+        }
+
+        private void RecBtn1_Click(object sender, RoutedEventArgs e)
+        {
+            //Temporary
+            Recommended.Content = "ITs Working!!!";
         }
     }
 }
