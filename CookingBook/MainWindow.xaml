@@ -50,7 +50,7 @@
         <Label x:Name="Recommended" 
                Content="Препоръчани"
                HorizontalAlignment="Left" 
-               Margin="276,26,0,0" 
+               Margin="276,42,0,0" 
                VerticalAlignment="Top"
                Width="200"
                FontSize="26.667"/>
@@ -71,8 +71,8 @@
                Width="165"
                Height="35"
                FontSize="14"/>
-        
-         <Button x:Name="RecBtn1" 
+
+        <Button x:Name="RecBtn1" 
                Background="Transparent" 
                BorderThickness="0,0,0,0"
                HorizontalAlignment="Left"
@@ -99,7 +99,7 @@
                Width="165"
                Height="35"
                FontSize="14"/>
-        
+
         <Button x:Name="RecBtn2" 
                Background="Transparent" 
                BorderThickness="0,0,0,0"
@@ -219,6 +219,44 @@
                Height="141"
                Width="168"/>
 
+
+        <!--placeholder for textbox-->
+        <TextBox x:Name="searchBox" 
+                 Text="Търси.." 
+                 Foreground="{StaticResource brushWatermarkForeground}" 
+                 HorizontalAlignment="Left"
+                 Height="22"
+                 Margin="852,58,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
+                 GotFocus="TextBox_GotFocus"         
+                 Width="167"/>
+
+
+        <!-- Menu -->
+        <ListView x:Name="Test2" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="355" Margin="851,94,0,0" VerticalAlignment="Top" Width="197" FontSize="21.333" BorderThickness="0" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,-4,0,-4">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="0,0,0,0" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock x:Name="MenuItem" TextWrapping="Wrap" Margin="0,25,0,0" FontSize="16" Text="{Binding recipe_name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+
         <Frame x:Name="Main" Margin="0,0,0,0"/>
+
+
     </Grid>
 </Window>

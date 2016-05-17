@@ -36,9 +36,15 @@ namespace CookingBook
 
             db.FillRecipe();
 
+
+            LoadRecipes();
+
             LoadMenu();
+
+
             LoadRecommendedImages();
 
+            
 
             //Test.Content = db.Recipe[0].recipe_name;
 
@@ -54,6 +60,22 @@ namespace CookingBook
         {
             db.FillCategories();
             Menu.ItemsSource = db.Category;
+        }
+
+
+        private void LoadRecipes()
+        {
+            //db.FillCategories();
+
+            db.FindByName("салата Гръцка");
+
+            //Search byCategory
+            //db.RecipesByCategory(4);
+            //Test2.ItemsSource = db.RecipeByCategory;   
+
+            Test2.ItemsSource = db.FilteredRecipe;
+
+        
         }
 
         private int[] RandomizeIndexes()
@@ -189,6 +211,13 @@ namespace CookingBook
             //Temporary
             Main.Content = new RecipePage(ButtonLinker[0]);
             Recommended.Content = "ITs Working!!!";
+        }
+
+        public void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            //TextBox tb = (TextBox)sender;
+            searchBox.Text = string.Empty;
+            searchBox.GotFocus -= TextBox_GotFocus;
         }
     }
 }

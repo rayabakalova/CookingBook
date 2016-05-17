@@ -31,6 +31,43 @@ namespace CookingBook.Objects
             this.Category = q;
         }
 
+
+        public void FindByName(string searchParameter)
+        {
+            //var q = (from recipe in cbdb.Recipes
+            //         where recipe.recipe_name.Contains(searchParameter) || recipe.recipe_descr.Contains(searchParameter)
+            //         select recipe).ToList();
+
+            var words = searchParameter.Split(' ');
+
+            var q = (from recipe in cbdb.Recipes
+                     from word in words
+                     where recipe.recipe_name.Contains(word) || recipe.recipe_descr.Contains(word)
+                     select recipe).ToList();
+
+            this.FilteredRecipe = q;
+        }
+
+
+        public void RecipesByCategory(int categoryId)
+        {
+
+            var q = (from recipe in cbdb.Recipes
+                     where recipe.category_id == categoryId
+                     select recipe).ToList();
+
+            this.RecipeByCategory = q;
+        }
+
+        public void GetProducts(int recipeId)
+        {
+            var q = (from recipe in cbdb.RecipeProduct
+                     join product in cbdb.Products
+                     on recipe.product)
+
+            this.Products = q;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] String propName = "")
@@ -51,6 +88,36 @@ namespace CookingBook.Objects
             set
             {
                 _recipe = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        private List<Recipe> _filteredRecipe;
+        public List<Recipe> FilteredRecipe
+        {
+            get
+            {
+                return _filteredRecipe;
+            }
+            set
+            {
+                _filteredRecipe = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        private List<Recipe> _recipeByCategory;
+        public List<Recipe> RecipeByCategory
+        {
+            get
+            {
+                return _recipeByCategory;
+            }
+            set
+            {
+                _recipeByCategory = value;
                 NotifyPropertyChanged();
             }
         }
