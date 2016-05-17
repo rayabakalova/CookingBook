@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CookingBook"
         mc:Ignorable="d"
-        Title="Cooking Book" Height="600" Width="880">
+        Title="Cooking Book" Height="600" Width="1080">
     <Grid Margin="0,8,0,-8">
 
         <Grid.Background>
@@ -100,10 +100,22 @@
                Width="165"
                Height="35"
                FontSize="14"/>
+        
+        <Button x:Name="RecBtn2" 
+               Background="Transparent" 
+               BorderThickness="0,0,0,0"
+               HorizontalAlignment="Left"
+               Margin="488,104,0,0" 
+               VerticalAlignment="Top"
+               Template="{StaticResource NoAnimation}"
+               Click="RecBtn1_Click"
+               Height="141"
+               Width="168"/>
 
         <Image x:Name="RecommendedImg3"
                HorizontalAlignment="Left"
-               Height="106" Margin="690,104,0,0"
+               Height="106" 
+               Margin="690,104,0,0"
                VerticalAlignment="Top"
                Width="168"/>
 
@@ -115,6 +127,17 @@
                Height="35"
                TextWrapping="Wrap"
                FontSize="14"/>
+
+        <Button x:Name="RecBtn3" 
+               Background="Transparent" 
+               BorderThickness="0,0,0,0"
+               HorizontalAlignment="Left"
+               Margin="689,104,0,0" 
+               VerticalAlignment="Top"
+               Template="{StaticResource NoAnimation}"
+               Click="RecBtn1_Click"
+               Height="141"
+               Width="168"/>
 
         <Image x:Name="RecommendedImg4"
                HorizontalAlignment="Left"
@@ -132,6 +155,17 @@
                Height="35"
                FontSize="14"/>
 
+        <Button x:Name="RecBtn4" 
+               Background="Transparent" 
+               BorderThickness="0,0,0,0"
+               HorizontalAlignment="Left"
+               Margin="690,248,0,0" 
+               VerticalAlignment="Top"
+               Template="{StaticResource NoAnimation}"
+               Click="RecBtn1_Click"
+               Height="141"
+               Width="168"/>
+
         <Image x:Name="RecommendedImg5"
                HorizontalAlignment="Left"
                Height="106"
@@ -148,6 +182,17 @@
                Height="35"
                FontSize="14"/>
 
+        <Button x:Name="RecBtn5" 
+               Background="Transparent" 
+               BorderThickness="0,0,0,0"
+               HorizontalAlignment="Left"
+               Margin="489,248,0,0" 
+               VerticalAlignment="Top"
+               Template="{StaticResource NoAnimation}"
+               Click="RecBtn1_Click"
+               Height="141"
+               Width="168"/>
+
         <Image x:Name="RecommendedImg6"
                HorizontalAlignment="Left"
                Height="106" 
@@ -163,8 +208,18 @@
                Height="35"
                TextWrapping="Wrap"
                FontSize="14"/>
-        
 
+        <Button x:Name="RecBtn6" 
+               Background="Transparent" 
+               BorderThickness="0,0,0,0"
+               HorizontalAlignment="Left"
+               Margin="286,248,0,0" 
+               VerticalAlignment="Top"
+               Template="{StaticResource NoAnimation}"
+               Click="RecBtn1_Click"
+               Height="141"
+               Width="168"/>
 
+        <Frame x:Name="Main" Margin="0,0,0,0"/>
     </Grid>
 </Window>

@@ -178,6 +178,7 @@ namespace CookingBook
         private void RecBtn1_Click(object sender, RoutedEventArgs e)
         {
             //Temporary
+            Main.Content = new RecipePage();
             Recommended.Content = "ITs Working!!!";
         }
     }
