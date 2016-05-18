@@ -219,7 +219,7 @@ namespace CookingBook
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            this.NavigationService.Navigate(new MainPage());
         }
     }
 }

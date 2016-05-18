@@ -219,7 +219,7 @@
 
 
         <Image x:Name="backBtnImg"
-               Source="/CookingBook;component/Images/backBtn1.png"
+               Source="/CookingBook;component/Images/backBtn.png"
                HorizontalAlignment="Left"
                Height="106" 
                Margin="13,442,0,0"

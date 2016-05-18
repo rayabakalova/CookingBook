@@ -89,58 +89,16 @@ namespace CookingBook
             this.NavigationService.GoBack();
         }
 
-        //internal void DoPreview(string title)
-        //{
-        //    string fileName = System.IO.Path.GetRandomFileName();
-        //    FlowDocumentScrollViewer visual = (FlowDocumentScrollViewer)(_parent.FindName("fdsv1"));
-        //    try
-        //    {
-        //        // write the XPS document
-        //        using (XpsDocument doc = new XpsDocument(fileName, FileAccess.ReadWrite))
-        //        {
-        //            XpsDocumentWriter writer = XpsDocument.CreateXpsDocumentWriter(doc);
-        //            writer.Write(visual);
-        //        }
 
-        //        // Read the XPS document into a dynamically generated
-        //        // preview Window 
-        //        using (XpsDocument doc = new XpsDocument(fileName, FileAccess.Read))
-        //        {
-        //            FixedDocumentSequence fds = doc.GetFixedDocumentSequence();
-
-        //            string s = _previewWindowXaml;
-        //            s = s.Replace("@@TITLE", title.Replace("'", "&apos;"));
-
-        //            using (var reader = new System.Xml.XmlTextReader(new StringReader(s)))
-        //            {
-        //                Window preview = System.Windows.Markup.XamlReader.Load(reader) as Window;
-
-        //                DocumentViewer dv1 = LogicalTreeHelper.FindLogicalNode(preview, "dv1") as DocumentViewer;
-        //                dv1.Document = fds as IDocumentPaginatorSource;
-
-
-        //                preview.ShowDialog();
-        //            }
-        //        }
-        //    }
-        //    finally
-        //    {
-        //        if (File.Exists(fileName))
-        //        {
-        //            try
-        //            {
-        //                File.Delete(fileName);
-        //            }
-        //            catch
-        //            {
-        //            }
-        //        }
-        //    }
-        //}
-
-        private void test_Click(object sender, RoutedEventArgs e)
+        private void print_Click(object sender, RoutedEventArgs e)
         {
-            
+            PrintDialog printDlg = new System.Windows.Controls.PrintDialog();
+
+            if (printDlg.ShowDialog() == true)
+            {
+
+                printDlg.PrintVisual(this, "WPF Print");
+            }
         }
     }
 }

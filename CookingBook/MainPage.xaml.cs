@@ -200,8 +200,7 @@ namespace CookingBook
             }
         }
 
-
-
+        //Placeholder
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             searchBox.Text = string.Empty;
