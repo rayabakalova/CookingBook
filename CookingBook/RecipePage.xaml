@@ -73,6 +73,15 @@
                 VerticalAlignment="Top" 
                 Click="button_Click"
                 Width="85"/>
+        
+        <Button x:Name="test" 
+                Content="print" 
+                HorizontalAlignment="Left" 
+                Margin="168,240,0,0" 
+                Click="test_Click"
+                VerticalAlignment="Top" 
+                Width="75"/>
 
+        
     </Grid>
 </Page>

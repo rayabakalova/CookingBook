@@ -57,20 +57,9 @@ namespace CookingBook
 
 
         private void LoadRecipes()
-        {
-            //db.FillCategories();
-
-            db.FindByName("салата Гръцка");
-
-            //Search byCategory
-            //db.RecipesByCategory(4);
-            //Test2.ItemsSource = db.RecipeByCategory;
-
+        {   
             db.FillRecipe();
-
             SearchList.ItemsSource = db.Recipe;
-
-
         }
 
         private int[] RandomizeIndexes()
@@ -79,9 +68,6 @@ namespace CookingBook
             Random rnd = new Random();
             bool duplicate = true;
             int[] indexes = new int[6];
-
-
-            int test = db.Recipe.Count;
 
             for (int i = 0; i < 6; i++)
             {
@@ -122,11 +108,9 @@ namespace CookingBook
 
             for (int i = 0; i < 6; i++)
             {
-                //int index = rnd.Next(0, 2);
 
                 if (db.Recipe[picIndex[i]] != null)
                 {
-                    //ButtonLinker[i] = picIndex[i];
                     path = PathBase + db.Recipe[picIndex[i]].recipe_id + postfix;
                     ButtonLinker[i] = db.Recipe[picIndex[i]].recipe_id;
                     name = db.Recipe[picIndex[i]].recipe_name;
@@ -196,9 +180,11 @@ namespace CookingBook
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var item = sender as ListViewItem;
+            Menu.SelectedItem = item.DataContext;
             if (item != null)
             {
-                Test.Content = "Raboti";
+                Category cat = (Category)Menu.SelectedItem;
+                this.NavigationService.Navigate(new CategoryPage(cat.category_name, cat.category_id));
             }
         }
 
@@ -211,7 +197,6 @@ namespace CookingBook
             {
                 Recipe recipe = (Recipe)SearchList.SelectedItem;
                 this.NavigationService.Navigate(new RecipePage(recipe.recipe_id));
-                //Main.Content = new RecipePage(recipe.recipe_id);
             }
         }
 
@@ -257,7 +242,7 @@ namespace CookingBook
 
         private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            
             if (placeHolder)
             {
                 db.FillRecipe();

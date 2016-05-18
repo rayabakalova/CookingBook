@@ -15,8 +15,6 @@
             <ImageBrush ImageSource="/CookingBook;component/Images/background.png"/>
         </Grid.Background>
 
-        <Label x:Name="Test" Content="Label" HorizontalAlignment="Left" Margin="557,333,0,0" VerticalAlignment="Top" Height="56" Width="195" RenderTransformOrigin="1.361,0.644"/>
-
         <Label x:Name="CategoryStaticTxt"
                Content="Категории" 
                HorizontalAlignment="Left"
@@ -237,8 +235,8 @@
                  Width="167"/>
 
 
-        <!-- Menu -->
-        <ListView x:Name="SearchList" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="355" Margin="861,94,0,0" VerticalAlignment="Top" Width="197" FontSize="21.333" BorderThickness="0" SelectionMode="Single">
+        <!-- Search List -->
+        <ListView x:Name="SearchList" Background="Transparent" BorderBrush="#158BBF" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="355" Margin="861,94,0,0" VerticalAlignment="Top" Width="197" FontSize="21.333" BorderThickness="1,0,1,0" SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,-4,0,-4">

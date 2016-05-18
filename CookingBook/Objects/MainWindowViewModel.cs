@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -30,9 +28,6 @@ namespace CookingBook.Objects
 
             this.Recipe = q;
 
-            //var q = (from recipe in cbdb.Recipes
-            //        where recipe.category_id == categoryId
-            //        select recipe).ToList();
         }
 
         public void FillCategories()
@@ -47,10 +42,6 @@ namespace CookingBook.Objects
 
         public void FindByName(string searchParameter)
         {
-            //var q = (from recipe in cbdb.Recipes
-            //         where recipe.recipe_name.Contains(searchParameter) || recipe.recipe_descr.Contains(searchParameter)
-            //         select recipe).ToList();
-
             var words = searchParameter.Split(' ');
 
             var q = (from recipe in cbdb.Recipes
@@ -74,7 +65,7 @@ namespace CookingBook.Objects
 
         public void GetProducts(int id)
         {
-
+            //LAMBDA Expression
             var q = cbdb.Products.Where(r => r.Recipes.Any(t => t.recipe_id ==  id)).ToList();
 
             this.Products = q;
