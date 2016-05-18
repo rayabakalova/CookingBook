@@ -22,3 +22,5 @@ C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\App.baml
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\RecipePage.g.cs
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\RecipePage.baml
+C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\MainPage.g.cs
+C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\MainPage.baml

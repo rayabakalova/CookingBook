@@ -22,6 +22,19 @@ namespace CookingBook.Objects
             this.Recipe = q;
         }
 
+        public void FindById(int currentId)
+        {
+            var q = (from recipe in cbdb.Recipes
+                     where recipe.recipe_id == currentId
+                     select recipe).ToList();
+
+            this.Recipe = q;
+
+            //var q = (from recipe in cbdb.Recipes
+            //        where recipe.category_id == categoryId
+            //        select recipe).ToList();
+        }
+
         public void FillCategories()
         {
             var q = (from category in cbdb.Categories

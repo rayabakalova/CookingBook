@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace CookingBook
 {
     /// <summary>
@@ -30,19 +31,23 @@ namespace CookingBook
         public RecipePage(int recipe_index)
         {
             InitializeComponent();
-            db.FillRecipe();
 
-            SetImage(recipe_index);
+
+            db.FindById(recipe_index);
+            SetImage();
+            WriteProdcuts(recipe_index);
 
         }
 
-        private void SetImage(int id)
+        private void SetImage()
         {
             string path = "";
 
-            if (db.Recipe[id] != null)
-            {
-               path = PathBase + db.Recipe[id].recipe_id + postfix;
+            if (db.Recipe[0] != null)
+            { 
+                path = PathBase + db.Recipe[0].recipe_id + postfix;
+                recipeDescr.Text = db.Recipe[0].recipe_descr;
+                recipeTitle.Text = db.Recipe[0].recipe_name;
             }
 
             Uri uri = null;
@@ -55,6 +60,19 @@ namespace CookingBook
             {
                 RecipeImage.Source = new BitmapImage(uri);
             }
+        }
+
+        private void WriteProdcuts(int recipe_index)
+        {
+            db.GetProducts(recipe_index);
+
+            ProductList.ItemsSource = db.Products;
+  
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new MainPage());
         }
     }
 }
