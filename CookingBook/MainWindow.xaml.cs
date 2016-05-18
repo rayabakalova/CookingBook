@@ -30,6 +30,8 @@ namespace CookingBook
 
         private static int[] ButtonLinker = new int[6];
 
+        private bool placeHolder = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -75,9 +77,11 @@ namespace CookingBook
 
             //Search byCategory
             //db.RecipesByCategory(4);
-            //Test2.ItemsSource = db.RecipeByCategory;   
+            //Test2.ItemsSource = db.RecipeByCategory;
 
-            Test2.ItemsSource = db.FilteredRecipe;
+            db.FillRecipe();   
+
+            SearchList.ItemsSource = db.Recipe;
 
         
         }
@@ -210,18 +214,62 @@ namespace CookingBook
             }
         }
 
-        private void RecBtn1_Click(object sender, RoutedEventArgs e)
-        {
-            //Temporary
-            Main.Content = new RecipePage(ButtonLinker[0]);
-            Recommended.Content = "ITs Working!!!";
-        }
+
 
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             //TextBox tb = (TextBox)sender;
             searchBox.Text = string.Empty;
             searchBox.GotFocus -= TextBox_GotFocus;
+            placeHolder = true;
+        }
+
+        private void RecBtn1_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new RecipePage(ButtonLinker[0]);
+        }
+
+        private void RecBtn2_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new RecipePage(ButtonLinker[1]);
+        }
+
+        private void RecBtn3_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new RecipePage(ButtonLinker[2]);
+        }
+
+        private void RecBtn4_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new RecipePage(ButtonLinker[3]);
+        }
+
+        private void RecBtn5_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new RecipePage(ButtonLinker[4]);
+        }
+
+        private void RecBtn6_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new RecipePage(ButtonLinker[5]);
+        }
+
+        private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (placeHolder)
+            {
+                db.FillRecipe();
+                List<Recipe> recipes = db.Recipe;
+                recipes.RemoveAll(x => !x.recipe_name.ToLower().Contains(searchBox.Text.ToLower()));
+
+                if (recipes != null)
+                {
+
+                    SearchList.ItemsSource = recipes;
+                }
+            }
+
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CookingBook"
         mc:Ignorable="d"
-        Title="Cooking Book" Height="600" Width="1080">
+        Title="Cooking Book" Height="600" Width="1100">
     <Grid Margin="0,8,0,-8">
 
         <Grid.Background>
@@ -107,7 +107,7 @@
                Margin="488,104,0,0" 
                VerticalAlignment="Top"
                Template="{StaticResource NoAnimation}"
-               Click="RecBtn1_Click"
+               Click="RecBtn2_Click"
                Height="141"
                Width="168"/>
 
@@ -134,7 +134,7 @@
                Margin="689,104,0,0" 
                VerticalAlignment="Top"
                Template="{StaticResource NoAnimation}"
-               Click="RecBtn1_Click"
+               Click="RecBtn3_Click"
                Height="141"
                Width="168"/>
 
@@ -161,7 +161,7 @@
                Margin="690,248,0,0" 
                VerticalAlignment="Top"
                Template="{StaticResource NoAnimation}"
-               Click="RecBtn1_Click"
+               Click="RecBtn4_Click"
                Height="141"
                Width="168"/>
 
@@ -188,7 +188,7 @@
                Margin="493,248,0,0" 
                VerticalAlignment="Top"
                Template="{StaticResource NoAnimation}"
-               Click="RecBtn1_Click"
+               Click="RecBtn5_Click"
                Height="141"
                Width="168"/>
 
@@ -215,7 +215,7 @@
                Margin="286,248,0,0" 
                VerticalAlignment="Top"
                Template="{StaticResource NoAnimation}"
-               Click="RecBtn1_Click"
+               Click="RecBtn6_Click"
                Height="141"
                Width="168"/>
 
@@ -226,15 +226,16 @@
                  Foreground="{StaticResource brushWatermarkForeground}" 
                  HorizontalAlignment="Left"
                  Height="22"
-                 Margin="852,58,0,0" 
+                 Margin="866,58,0,0" 
                  TextWrapping="Wrap" 
                  VerticalAlignment="Top"
-                 GotFocus="TextBox_GotFocus"         
+                 GotFocus="TextBox_GotFocus"
+                 TextChanged="searchBox_TextChanged"
                  Width="167"/>
 
 
         <!-- Menu -->
-        <ListView x:Name="Test2" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="355" Margin="851,94,0,0" VerticalAlignment="Top" Width="197" FontSize="21.333" BorderThickness="0" SelectionMode="Single">
+        <ListView x:Name="SearchList" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="355" Margin="861,94,0,0" VerticalAlignment="Top" Width="197" FontSize="21.333" BorderThickness="0" SelectionMode="Single">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,-4,0,-4">
@@ -243,7 +244,15 @@
                                 <Setter Property="Margin" Value="0,0,0,0" />
                             </Style>
                         </StackPanel.Resources>
-                        <TextBlock x:Name="MenuItem" TextWrapping="Wrap" Margin="0,25,0,0" FontSize="16" Text="{Binding recipe_name}" />
+                        <TextBlock x:Name="MenuItem" 
+                                   Foreground="#158BBF"
+                                   TextWrapping="Wrap"
+                                   Margin="0,25,0,0"
+                                   Width="165"
+                                   FontSize="16"
+                                   LineStackingStrategy="BlockLineHeight"
+                                   LineHeight="16"
+                                   Text="{Binding recipe_name}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
