@@ -12,7 +12,7 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="/CookingBook;component/Images/background1.jpg"/>
+            <ImageBrush ImageSource="/CookingBook;component/Images/background.jpg"/>
         </Grid.Background>
 
         <Label x:Name="CategoryStaticTxt"
@@ -69,6 +69,7 @@
                Margin="281,210,0,0" 
                VerticalAlignment="Top"
                TextWrapping="Wrap"
+               FontWeight="Bold"
                Width="165"
                Height="35"
                FontSize="14"/>
@@ -96,6 +97,7 @@
                HorizontalAlignment="Left" 
                Margin="487,210,0,0" 
                TextWrapping="Wrap"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                Width="165"
                Height="35"
@@ -121,7 +123,8 @@
 
         <TextBlock x:Name="RecommendedTxt3"
                HorizontalAlignment="Left" 
-               Margin="689,210,0,0" 
+               Margin="689,210,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                Width="165"
                Height="35"
@@ -148,7 +151,8 @@
 
         <TextBlock x:Name="RecommendedTxt4"
                HorizontalAlignment="Left" 
-               Margin="689,354,0,0" 
+               Margin="689,354,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                TextWrapping="Wrap"
                Width="165"
@@ -175,7 +179,8 @@
 
         <TextBlock x:Name="RecommendedTxt5"
                HorizontalAlignment="Left" 
-               Margin="488,354,0,0" 
+               Margin="488,354,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                TextWrapping="Wrap"
                Width="165"
@@ -202,7 +207,8 @@
 
         <TextBlock x:Name="RecommendedTxt6"
                HorizontalAlignment="Left" 
-               Margin="284,354,0,0" 
+               Margin="284,354,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                Width="165"
                Height="35"
@@ -223,7 +229,7 @@
 
         <!--placeholder for textbox-->
         <TextBox x:Name="searchBox" 
-                 Text="Търси.." 
+                 Text="Търси..." 
                  Foreground="{StaticResource brushWatermarkForeground}" 
                  HorizontalAlignment="Left"
                  Height="22"
@@ -246,7 +252,6 @@
                             </Style>
                         </StackPanel.Resources>
                         <TextBlock x:Name="MenuItem" 
-                                   Foreground="#158BBF"
                                    TextWrapping="Wrap"
                                    Margin="0,25,0,0"
                                    Width="165"
@@ -263,14 +268,25 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        
+
+        <Image x:Name="adminBtnImg"
+               Source="/CookingBook;component/Images/adminBtn.png"
+               HorizontalAlignment="Left"
+               Height="56" 
+               Margin="809,46,0,0"
+               VerticalAlignment="Top"
+               Width="39"/>
+
         <Button x:Name="adminBtn" 
-                Content="Admin" 
+                Background="Transparent"
+                BorderThickness="0,0,0,0"
+                Template="{StaticResource NoAnimation}"
                 HorizontalAlignment="Left" 
-                Margin="496,59,0,0"
+                Margin="812,51,0,0"
                 Click="adminBtn_Click"
                 VerticalAlignment="Top"
-                Width="75"/>
+                Height="34"
+                Width="39"/>
 
 
     </Grid>

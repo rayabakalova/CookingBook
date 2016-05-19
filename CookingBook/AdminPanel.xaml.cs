@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,6 @@ namespace CookingBook
         private MainWindowVeiwModel db = new MainWindowVeiwModel();
 
         private static string passStore = "cook";
-        private static bool isLogged = false;
 
         string imgPath;
 
@@ -66,15 +66,13 @@ namespace CookingBook
         {
             if (checkPassword())
             {
-                isLogged = true;
-                msgTxt.Content = "";
                 ShowHideLoginForm(false);
                 ShowHidePanel(true);
                 passwordBox.Clear();
             }
             else
             {
-                msgTxt.Content = "Грешна парола !!!";
+                MessageBox.Show("Грешна парола !!!");
             }
         }
 
@@ -91,12 +89,13 @@ namespace CookingBook
                 imgPhoto.Source = new BitmapImage(new Uri(op.FileName));
             }
 
-            CopyFileIntoProject();
         }
 
         private void CopyFileIntoProject()
         {
-            string newPathToFile = @"C:\Users\karad\Documents\visual studio 2015\Projects\CookingBook\CookingBook\Images\Dishes\Test.jpg";
+            db.FillRecipe();
+            int newIndex = db.Recipe.Count;
+            string newPathToFile = @"C:\Users\karad\Documents\visual studio 2015\Projects\CookingBook\CookingBook\Images\Dishes\" + newIndex + ".jpg";
             File.Copy(imgPath, newPathToFile);
         }
 
@@ -139,8 +138,7 @@ namespace CookingBook
             SearchList.SelectedItem = item.DataContext;
             if (item != null)
             {
-                
-            
+
             }
         }
 
@@ -203,8 +201,9 @@ namespace CookingBook
                 passTxtStatic.Visibility = Visibility.Collapsed;
                 passwordBox.Visibility = Visibility.Collapsed;
                 loginBtn.Visibility = Visibility.Collapsed;
-                msgTxt.Visibility = Visibility.Collapsed;
                 logOutBtn.Visibility = Visibility.Visible;
+                backButton.Visibility = Visibility.Collapsed;
+                backBtnImg.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -212,8 +211,9 @@ namespace CookingBook
                 passTxtStatic.Visibility = Visibility.Visible;
                 passwordBox.Visibility = Visibility.Visible;
                 loginBtn.Visibility = Visibility.Visible;
-                msgTxt.Visibility = Visibility.Visible;
                 logOutBtn.Visibility = Visibility.Collapsed;
+                backButton.Visibility = Visibility.Visible;
+                backBtnImg.Visibility = Visibility.Visible;
             }
 
         }
@@ -244,6 +244,20 @@ namespace CookingBook
             imgPhoto.Source = null;
 
             OpenBtn.Content = "Отвори";
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new MainPage());
+        }
+
+        private void addRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            db.FillRecipe();
+            int newIndex = db.Recipe.Count + 1;
+            db.InsertRecord(newIndex, recNameInput.Text, recDescrInput.Text, catInputCombo.SelectedIndex + 1);
+            CopyFileIntoProject();
+            LoadRecipes();
         }
     }
 }

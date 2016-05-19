@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/CookingBook;component/Images/background.png"/>
+            <ImageBrush ImageSource="/CookingBook;component/Images/background.jpg"/>
         </Grid.Background>
 
         <Label x:Name="CategoryStaticTxt"
@@ -63,7 +63,8 @@
 
         <TextBlock x:Name="RecommendedTxt1"
                HorizontalAlignment="Left" 
-               Margin="281,210,0,0" 
+               Margin="281,210,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                TextWrapping="Wrap"
                Width="165"
@@ -93,6 +94,7 @@
                HorizontalAlignment="Left" 
                Margin="487,210,0,0" 
                TextWrapping="Wrap"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                Width="165"
                Height="35"
@@ -118,7 +120,8 @@
 
         <TextBlock x:Name="RecommendedTxt3"
                HorizontalAlignment="Left" 
-               Margin="689,210,0,0" 
+               Margin="689,210,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                Width="165"
                Height="35"
@@ -145,7 +148,8 @@
 
         <TextBlock x:Name="RecommendedTxt4"
                HorizontalAlignment="Left" 
-               Margin="689,354,0,0" 
+               Margin="689,354,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                TextWrapping="Wrap"
                Width="165"
@@ -172,7 +176,8 @@
 
         <TextBlock x:Name="RecommendedTxt5"
                HorizontalAlignment="Left" 
-               Margin="488,354,0,0" 
+               Margin="488,354,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                TextWrapping="Wrap"
                Width="165"
@@ -199,7 +204,8 @@
 
         <TextBlock x:Name="RecommendedTxt6"
                HorizontalAlignment="Left" 
-               Margin="284,354,0,0" 
+               Margin="284,354,0,0"
+               FontWeight="Bold"
                VerticalAlignment="Top"
                Width="165"
                Height="35"
@@ -243,7 +249,6 @@
                             </Style>
                         </StackPanel.Resources>
                         <TextBlock x:Name="MenuItem" 
-                                   Foreground="#158BBF"
                                    TextWrapping="Wrap"
                                    Margin="0,25,0,0"
                                    Width="165"

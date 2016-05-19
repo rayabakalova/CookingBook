@@ -9,7 +9,10 @@
       d:DesignHeight="600" d:DesignWidth="1080"
       Title="RecipePage">
 
-    <Grid Background="LightGray">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/CookingBook;component/Images/admbckgr.jpg"/>
+        </Grid.Background>
 
         <Label x:Name="AdminTxtstatic" 
                Content="Администратор"
@@ -41,14 +44,6 @@
                 Click="loginBtn_Click"
                 Width="195"
                 Height="34"/>
-
-        <Label x:Name="msgTxt" 
-               HorizontalAlignment="Left" 
-               Margin="710,264,0,0" 
-               FontSize="16"
-               Foreground="Red"
-               VerticalAlignment="Top" 
-               Width="226"/>
 
         <Label x:Name="recNameTxt"
                Content="Име на рецепта:"
@@ -145,7 +140,7 @@
         <Button x:Name="logOutBtn"
         	Content="Logout" 
         	HorizontalAlignment="Left"
-        	Margin="866,28,0,0" 
+        	Margin="862,28,0,0" 
         	VerticalAlignment="Top"
         	Click="logOutBtn_Click"
         	Width="195"
@@ -184,11 +179,12 @@
         	Content="Добави рецепта" 
         	HorizontalAlignment="Left"
         	Margin="440,60,0,0"
+            Click="addRecipe_Click"
         	VerticalAlignment="Top" 
         	Width="120"/>
 
         <Button x:Name="deleteRecipe" 
-        	Content="Изтрии рецепта" 
+        	Content="Изтрий рецепта" 
         	HorizontalAlignment="Left"
         	Margin="440,92,0,0"
         	VerticalAlignment="Top" 
@@ -229,12 +225,31 @@
         </ListView>
         
         <Button x:Name="clearForms" 
-        	Content="Изчисти Формите" 
+        	Content="Изчисти формите" 
         	HorizontalAlignment="Left"
         	Margin="440,154,0,0"
             Click="clearForms_Click"
         	VerticalAlignment="Top" 
         	Width="120"/>
+
+        <Image x:Name="backBtnImg"
+               Source="/CookingBook;component/Images/backBtn.png"
+               HorizontalAlignment="Left"
+               Height="106" 
+               Margin="13,442,0,0"
+               VerticalAlignment="Top"
+               Width="110"/>
+
+        <Button x:Name="backButton" 
+               Background="Transparent" 
+               BorderThickness="0,0,0,0"
+               HorizontalAlignment="Left"
+               Margin="12,440,0,0" 
+               VerticalAlignment="Top"
+               Template="{StaticResource NoAnimation}"
+               Click="backButton_Click"
+               Height="106"
+               Width="110"/>
 
     </Grid>
 </Page>

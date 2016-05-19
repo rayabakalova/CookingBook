@@ -24,19 +24,6 @@ namespace CookingBook
     public partial class RecipePage : Page
     {
 
-
-        private string _previewWindowXaml =
-                @"<Window
-                    xmlns                 ='http://schemas.microsoft.com/netfx/2007/xaml/presentation'
-                    xmlns:x               ='http://schemas.microsoft.com/winfx/2006/xaml'
-                    Title                 ='Print Preview - @@TITLE'
-                    Height                ='200'
-                    Width                 ='300'
-                    WindowStartupLocation ='CenterOwner'>
-                    <DocumentViewer Name='dv1'/>
-                    </Window>";
-
-
         private static string postfix = ".jpg";
         private static string PathBase = "/CookingBook;component/Images/Dishes/";
 

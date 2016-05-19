@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Core;
+using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace CookingBook.Objects
 {
@@ -66,11 +70,39 @@ namespace CookingBook.Objects
         public void GetProducts(int id)
         {
             //LAMBDA Expression
-            var q = cbdb.Products.Where(r => r.Recipes.Any(t => t.recipe_id ==  id)).ToList();
+            var q = cbdb.Products.Where(r => r.Recipes.Any(t => t.recipe_id == id)).ToList();
 
             this.Products = q;
         }
 
+        public void InsertRecord(int rec_id, string rec_name, string rec_descr, int cat_id)
+        {
+            Recipe rec = new Recipe()
+            {
+                recipe_id = rec_id,
+                recipe_name = rec_name,
+                recipe_descr = rec_descr,
+                category_id = cat_id,
+            };
+
+            cbdb.Recipes.Add(rec);
+            cbdb.SaveChanges();
+        }
+
+        public void ModifyRecord()
+        {
+            var q = (from recipe in cbdb.Recipes
+                     where recipe.recipe_id == 51
+                     select recipe).First();
+
+            q.recipe_name = "test555555";
+
+           int test = cbdb.SaveChanges();
+
+
+        }
+
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] String propName = "")
