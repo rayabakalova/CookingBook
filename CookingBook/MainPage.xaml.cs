@@ -254,6 +254,11 @@ namespace CookingBook
                 }
             }
 
-        }    
-}
+        }
+
+        private void adminBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AdminPanel());
+        }
+    }
 }

@@ -83,6 +83,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminPanel.xaml.cs">
+      <DependentUpon>AdminPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <DependentUpon>CookBook.tt</DependentUpon>
     </Compile>
@@ -120,6 +123,10 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>CookBook.tt</DependentUpon>
     </Compile>
+    <Page Include="AdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CategoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,6 +220,30 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CookingData.mdf</DependentUpon>
     </Content>
+    <Resource Include="Images\background1.jpg" />
+    <Resource Include="Images\Dishes\50.jpg" />
+    <Resource Include="Images\Dishes\49.jpg" />
+    <Resource Include="Images\Dishes\48.jpg" />
+    <Resource Include="Images\Dishes\47.jpg" />
+    <Resource Include="Images\Dishes\46.jpg" />
+    <Resource Include="Images\Dishes\45.jpg" />
+    <Resource Include="Images\Dishes\44.jpg" />
+    <Resource Include="Images\Dishes\43.jpg" />
+    <Resource Include="Images\Dishes\42.jpg" />
+    <Resource Include="Images\Dishes\41.jpg" />
+    <Resource Include="Images\Dishes\40.jpg" />
+    <Resource Include="Images\Dishes\39.jpg" />
+    <Resource Include="Images\Dishes\38.jpg" />
+    <Resource Include="Images\Dishes\37.jpg" />
+    <Resource Include="Images\Dishes\36.jpg" />
+    <Resource Include="Images\Dishes\35.jpg" />
+    <Resource Include="Images\Dishes\34.jpg" />
+    <Resource Include="Images\Dishes\33.jpg" />
+    <Resource Include="Images\Dishes\32.jpg" />
+    <Resource Include="Images\Dishes\31.jpg" />
+    <Resource Include="Images\Dishes\30.jpg" />
+    <Resource Include="Images\Dishes\29.JPG" />
+    <Resource Include="Images\Dishes\28.jpg" />
     <Resource Include="Images\print.png" />
     <Resource Include="Images\Dishes\27.jpg" />
     <Resource Include="Images\Dishes\26.jpg" />

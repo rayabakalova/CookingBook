@@ -218,6 +218,50 @@
                Width="168"/>
 
 
+        <!--placeholder for textbox-->
+        <TextBox x:Name="searchBox" 
+                 Text="Търси.." 
+                 Foreground="{StaticResource brushWatermarkForeground}" 
+                 HorizontalAlignment="Left"
+                 Height="22"
+                 Margin="866,47,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
+                 GotFocus="TextBox_GotFocus"
+                 TextChanged="searchBox_TextChanged"
+                 Width="167"/>
+
+
+        <!-- Search List -->
+        <ListView x:Name="SearchList" Background="Transparent" BorderBrush="#158BBF" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="355" Margin="861,94,0,0" VerticalAlignment="Top" Width="197" FontSize="21.333" BorderThickness="1,0,1,0" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,-4,0,-4">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Margin" Value="0,0,0,0" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock x:Name="MenuItem" 
+                                   Foreground="#158BBF"
+                                   TextWrapping="Wrap"
+                                   Margin="0,25,0,0"
+                                   Width="165"
+                                   FontSize="16"
+                                   LineStackingStrategy="BlockLineHeight"
+                                   LineHeight="16"
+                                   Text="{Binding recipe_name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewRecipe_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+
         <Image x:Name="backBtnImg"
                Source="/CookingBook;component/Images/backBtn.png"
                HorizontalAlignment="Left"
@@ -236,6 +280,13 @@
                Click="backButton_Click"
                Height="106"
                Width="110"/>
+        
+        <Label x:Name="moreTxtStatic"
+               Content="Още: "
+               FontWeight="Bold"
+               HorizontalAlignment="Left"
+               Margin="864,68,0,0"
+               VerticalAlignment="Top"/>
 
 
 

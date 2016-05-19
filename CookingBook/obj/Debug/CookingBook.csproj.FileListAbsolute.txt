@@ -26,3 +26,5 @@ C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\MainPage.baml
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\CategoryPage.g.cs
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\CategoryPage.baml
+C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\AdminPanel.g.cs
+C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\AdminPanel.baml

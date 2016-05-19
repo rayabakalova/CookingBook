@@ -29,7 +29,9 @@ namespace CookingBook
 
         private static int[] ButtonLinker = new int[6];
 
-        private static int storeCatId; 
+        private static int storeCatId;
+
+        private bool placeHolder = false;
 
         public CategoryPage(string title, int categoryId)
         {
@@ -172,7 +174,7 @@ namespace CookingBook
         private void LoadRecipes()
         {
             db.RecipesByCategory(storeCatId);
-            //SearchList.ItemsSource = db.Recipe;
+            SearchList.ItemsSource = db.RecipeByCategory;
         }
 
         private void RecBtn1_Click(object sender, RoutedEventArgs e)
@@ -215,6 +217,44 @@ namespace CookingBook
                 Category cat = (Category)Menu.SelectedItem;
                 this.NavigationService.Navigate(new CategoryPage(cat.category_name, cat.category_id));
             }
+        }
+
+        private void ListViewRecipe_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+
+            SearchList.SelectedItem = item.DataContext;
+            if (item != null)
+            {
+                Recipe recipe = (Recipe)SearchList.SelectedItem;
+                this.NavigationService.Navigate(new RecipePage(recipe.recipe_id));
+            }
+        }
+
+        //Placeholder
+        public void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            searchBox.Text = string.Empty;
+            searchBox.Foreground = Brushes.Black;
+            searchBox.GotFocus -= TextBox_GotFocus;
+            placeHolder = true;
+        }
+
+        private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (placeHolder)
+            {
+                db.FillRecipe();
+                List<Recipe> recipes = db.Recipe;
+                recipes.RemoveAll(x => !x.recipe_name.ToLower().Contains(searchBox.Text.ToLower()) && !x.recipe_descr.ToLower().Contains(searchBox.Text.ToLower()));
+
+                if (recipes != null)
+                {
+                    SearchList.ItemsSource = recipes;
+                }
+            }
+
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
