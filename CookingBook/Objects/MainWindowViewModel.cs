@@ -24,6 +24,15 @@ namespace CookingBook.Objects
             this.Recipe = q;
         }
 
+        public void FillProduct()
+        {
+            var q = (from product in cbdb.Products
+                     orderby product.products_id
+                     select product).ToList();
+
+            this.Products = q;
+        }
+
         public void FindById(int currentId)
         {
             var q = (from recipe in cbdb.Recipes
@@ -89,21 +98,64 @@ namespace CookingBook.Objects
             cbdb.SaveChanges();
         }
 
-        public void ModifyRecord()
+        public void InsertProductForRecipe(int rec_id, List<Product> products, int newId)
         {
-            var q = (from recipe in cbdb.Recipes
-                     where recipe.recipe_id == 51
-                     select recipe).First();
+            Product prod = new Product();
 
-            q.recipe_name = "test555555";
+            for (int i = 0; i < products.Count; i++)
+            {
 
-           int test = cbdb.SaveChanges();
+                string query = "INSERT INTO [dbo].Products(products_id, products_name) VALUES( {0}, {1})";
+                cbdb.Database.ExecuteSqlCommand(query, newId+i, products[i].products_name);
 
+            }
+
+            cbdb.SaveChanges();
 
         }
 
-       
+        public void LinkRecipeProduct(int rec_id, int count, int prod_id)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                string query = "INSERT INTO [dbo].RecipeProduct(recipe_id, products_id) VALUES( {0}, {1})";
+                cbdb.Database.ExecuteSqlCommand(query, rec_id, prod_id);
+            }
+
+            cbdb.SaveChanges();
+        }
+
+    public void ModifyRecord(int rec_id, string recipe_name, string rec_descr, int cat_id )
+        {
+            var q = (from recipe in cbdb.Recipes
+                     where recipe.recipe_id == rec_id
+                     select recipe).First();
+
+            q.recipe_name = recipe_name;
+            q.recipe_descr = rec_descr;
+            q.category_id = cat_id;
+
+           int succsess = cbdb.SaveChanges();
+
+        }
+
+        public void DeleteRecord(int rec_id)
+        {
+            string linkQuery = "DELETE FROM dbo.RecipeProduct WHERE recipe_id = {0}";
+
+            cbdb.Database.ExecuteSqlCommand(linkQuery, rec_id);
+
+
+            string query = "DELETE FROM Recipe WHERE recipe_id = {0}";
+
+            cbdb.Database.ExecuteSqlCommand(query, rec_id);
+
+            cbdb.SaveChanges();
+
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
+        
 
         private void NotifyPropertyChanged([CallerMemberName] String propName = "")
         {

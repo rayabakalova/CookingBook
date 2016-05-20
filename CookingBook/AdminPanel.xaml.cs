@@ -29,6 +29,10 @@ namespace CookingBook
         private MainWindowVeiwModel db = new MainWindowVeiwModel();
 
         private static string passStore = "cook";
+        private static int storeRecipeID;
+        public static int temporaryVar;
+
+        public static List<Product> prods = new List<Product>();
 
         string imgPath;
 
@@ -96,7 +100,9 @@ namespace CookingBook
             db.FillRecipe();
             int newIndex = db.Recipe.Count;
             string newPathToFile = @"C:\Users\karad\Documents\visual studio 2015\Projects\CookingBook\CookingBook\Images\Dishes\" + newIndex + ".jpg";
-            File.Copy(imgPath, newPathToFile);
+            
+            File.Copy(imgPath, newPathToFile, true);
+
         }
 
         private void LoadRecipes()
@@ -113,16 +119,27 @@ namespace CookingBook
             if (item != null)
             {
                 Recipe recipe = (Recipe)SearchList.SelectedItem;
+                storeRecipeID = recipe.recipe_id;
                 recNameInput.Text = recipe.recipe_name;
                 recDescrInput.Text = recipe.recipe_descr;
 
                 catInputCombo.SelectedIndex = (int)recipe.category_id - 1;
 
-                db.GetProducts(recipe.recipe_id);
+                //temporary need to be fixed
+                if (recipe.recipe_id == temporaryVar)
+                {
+                    productList.ClearValue(ListView.ItemsSourceProperty);
+                    productList.Items.Clear();
+                    productList.ItemsSource = prods;
+                }
+                else
+                {
+                    db.GetProducts(recipe.recipe_id);
 
-                productList.ClearValue(ListView.ItemsSourceProperty);
-                productList.Items.Clear();
-                productList.ItemsSource = db.Products;
+                    productList.ClearValue(ListView.ItemsSourceProperty);
+                    productList.Items.Clear();
+                    productList.ItemsSource = db.Products;
+                }
 
 
                 imgPhoto.Source = new BitmapImage(new Uri(@"C:\Users\karad\Documents\visual studio 2015\Projects\CookingBook\CookingBook\Images\Dishes\" + recipe.recipe_id + ".jpg"));
@@ -234,10 +251,15 @@ namespace CookingBook
 
         private void clearForms_Click(object sender, RoutedEventArgs e)
         {
+            ClearForms();
+        }
+
+        private void ClearForms()
+        {
             recNameInput.Text = "";
             recDescrInput.Text = "";
 
-            catInputCombo.SelectedIndex = - 1;
+            catInputCombo.SelectedIndex = -1;
 
             productList.ClearValue(ListView.ItemsSourceProperty);
 
@@ -253,11 +275,83 @@ namespace CookingBook
 
         private void addRecipe_Click(object sender, RoutedEventArgs e)
         {
-            db.FillRecipe();
-            int newIndex = db.Recipe.Count + 1;
-            db.InsertRecord(newIndex, recNameInput.Text, recDescrInput.Text, catInputCombo.SelectedIndex + 1);
-            CopyFileIntoProject();
-            LoadRecipes();
+
+            if (validateAction())
+            {
+                db.FillRecipe();
+                int newIndex = db.Recipe.Count + 1;
+                db.InsertRecord(newIndex, recNameInput.Text, recDescrInput.Text, catInputCombo.SelectedIndex + 1);
+
+                db.FillProduct();
+                int newProdIndex = db.Products.Count + 1;
+
+                temporaryVar = newIndex;
+
+
+                for (int i = 0; i < productList.Items.Count; i++)
+                {
+                    Product prod = (Product)productList.Items[i];
+
+                    prods.Add(prod);
+                }
+
+
+                db.InsertProductForRecipe(newIndex, prods, newProdIndex);
+
+
+
+                //need to be fixed
+                //db.LinkRecipeProduct(newProdIndex, prods.Count, newProdIndex);
+
+                CopyFileIntoProject();
+                LoadRecipes();
+                ClearForms();
+            }
+            else
+            {
+                MessageBox.Show("Празни полета не са позволени !!!");
+            }
+            
+        }
+
+        private void changeRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (validateAction())
+            {
+                db.ModifyRecord(storeRecipeID, recNameInput.Text, recDescrInput.Text, catInputCombo.SelectedIndex + 1);
+                LoadRecipes();
+            }
+            else
+            {
+                MessageBox.Show("Празни полета не са позволени !!!");
+            }
+
+        }
+
+        private void deleteRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (validateAction())
+            {
+                db.DeleteRecord(storeRecipeID);
+                LoadRecipes();
+                ClearForms();
+            }
+            else
+            {
+                MessageBox.Show("Празни полета не са позволени !!!");
+            }
+        }
+
+        private bool validateAction()
+        {
+            if (string.IsNullOrWhiteSpace(recNameInput.Text)
+                || string.IsNullOrWhiteSpace(recDescrInput.Text)
+                || catInputCombo.SelectedIndex == -1)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

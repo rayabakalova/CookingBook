@@ -3,8 +3,6 @@ C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\CookingData_log.ldf
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\CookingBook.exe
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\CookingBook.pdb
-C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\EntityFramework.dll
-C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\EntityFramework.xml
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\CookingBook.csprojResolveAssemblyReference.cache
@@ -28,3 +26,5 @@ C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\CategoryPage.baml
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\AdminPanel.g.cs
 C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\obj\Debug\AdminPanel.baml
+C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\EntityFramework.dll
+C:\Users\karad\documents\visual studio 2015\Projects\CookingBook\CookingBook\bin\Debug\EntityFramework.SqlServer.dll

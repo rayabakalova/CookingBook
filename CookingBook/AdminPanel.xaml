@@ -186,14 +186,16 @@
         <Button x:Name="deleteRecipe" 
         	Content="Изтрий рецепта" 
         	HorizontalAlignment="Left"
-        	Margin="440,92,0,0"
+        	Margin="440,122,0,0"
+            Click="deleteRecipe_Click"
         	VerticalAlignment="Top" 
         	Width="120"/>
 
         <Button x:Name="changeRecipe" 
         	Content="Промени рецепта" 
         	HorizontalAlignment="Left"
-        	Margin="440,124,0,0"
+            Click="changeRecipe_Click"
+        	Margin="440,90,0,0"
         	VerticalAlignment="Top" 
         	Width="120"/>
 

@@ -65,10 +65,19 @@ namespace CookingBook
 
         private void WriteProdcuts(int recipe_index)
         {
-            db.GetProducts(recipe_index);
+            //temporary need to fix
+            if (recipe_index == AdminPanel.temporaryVar)
+            {
+                ProductList.ItemsSource = AdminPanel.prods;
+            }
+            else
+            {
 
-            ProductList.ItemsSource = db.Products;
-  
+                db.GetProducts(recipe_index);
+
+                ProductList.ItemsSource = db.Products;
+            }
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
