@@ -30,7 +30,7 @@
                Margin="370,258,0,0" 
                VerticalAlignment="Top"/>
 
-        <PasswordBox x:Name="passwordBox"
+        <PasswordBox x:Name="промени"
                      HorizontalAlignment="Left" 
                      Margin="496,264,0,0"
                      FontSize="24"
