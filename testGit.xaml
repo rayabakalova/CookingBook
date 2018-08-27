@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
      
       d:DesignHeight="600" d:DesignWidth="1080"
-      Title="RecipePage4444">
+      Title="RecipePage">
 
     <Grid>
         <Grid.Background>
