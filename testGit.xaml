@@ -24,7 +24,7 @@
                VerticalAlignment="Top"/>
 
         <Label x:Name="passTxtStatic"
-               Content="Парола:" 
+               Content="Промените на Росен:" 
                HorizontalAlignment="Left"
                FontSize="24"
                Margin="370,258,0,0" 
